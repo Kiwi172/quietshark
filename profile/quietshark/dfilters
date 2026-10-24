@@ -1,0 +1,12 @@
+# quietshark starter display filters (Edit -> Preference Profiles is not
+# needed; these show up in the filter dropdown's "Auto-completed" list
+# under your profile).
+"HTTP" http
+"DNS" dns
+"TLS" tls
+"ARP" arp
+"ICMP" icmp || icmpv6
+"Broadcast" eth.broadcast || ip.dst == 255.255.255.255
+"TCP problems" tcp.analysis.flags && !tcp.analysis.keep_alive
+"Resets" tcp.flags.reset == 1
+"Large frames" frame.len > 1500

@@ -1,0 +1,89 @@
+// quietshark — a calm native theme for Wireshark's theme system.
+//
+// Target: Wireshark master (theme system lands in 4.7; not present in
+// 4.2-4.6, where the profile + Qt stylesheet do the work).
+// Install: drop this file into the "Personal Themes" folder shown in
+//          Help -> About -> Folders (Linux: ~/.local/lib/wireshark/themes/),
+// then pick "quietshark" under Preferences -> Appearance -> Theme.
+//
+// Only overridden tokens are listed; everything else falls back to the
+// built-in Wireshark theme.
+
+{
+	"meta": {
+		"name": "quietshark",
+		"version": 1,
+		"author": "Kiwi172",
+		"description": "Low-saturation, warm-neutral palette. Same layout, quieter chrome."
+	},
+
+	"brand": {
+		"primary": { "light": "#b9cfe6", "dark": "#34506e" }
+	},
+
+	"accent": {
+		"success": { "light": "#5d9c66", "dark": "#86c98e" },
+		"warning": { "light": "#c08a4e", "dark": "#e3b276" },
+		"error":   { "light": "#b05c5c", "dark": "#d98a8a" },
+		"info":    { "light": "#5c7fa3", "dark": "#90b4d4" }
+	},
+
+	"packets": {
+		"selection":     { "light": "#6f96c9", "dark": "#33507a" },
+		"selectionText": { "light": "#ffffff", "dark": "#ffffff" },
+		"inactive":      { "light": "#6f96c9", "dark": "#33507a" },
+		"inactiveText":  { "light": "#ffffff", "dark": "#ffffff" },
+		"marked":        { "light": "#2f3e4e", "dark": "#2f3e4e" },
+		"markedText":    { "light": "#ffffff", "dark": "#ffffff" },
+		"ignored":       { "light": "#ffffff", "dark": "#1c1c1c" },
+		"ignoredText":   { "light": "#8a8a8a", "dark": "#8a8a8a" },
+		"hidden":        { "light": "#555555", "dark": "#9a9a9a" }
+	},
+
+	"filter": {
+		"valid":      { "light": "#dcecd9", "dark": "#2f4a30" },
+		"invalid":    { "light": "#f2d9d6", "dark": "#55302d" },
+		"deprecated": { "light": "#f2ecd2", "dark": "#4d462a" },
+		"history":    { "light": "#6a6a6a", "dark": "#b5b5b5" }
+	},
+
+	"conversation": {
+		"client":     { "light": "#f5ead6", "dark": "#3a3222" },
+		"clientText": { "light": "#7a4a2a", "dark": "#e8c39a" },
+		"server":     { "light": "#e8ecf5", "dark": "#262e3e" },
+		"serverText": { "light": "#3a557a", "dark": "#a8c4e8" }
+	},
+
+	"palette": {
+		"window":          { "light": "#f5f4f1", "dark": "#232527" },
+		"windowText":      { "light": "#2d2d2d", "dark": "#d8d8d8" },
+		"base":            { "light": "#fcfbf9", "dark": "#1e2022" },
+		"text":            { "light": "#2d2d2d", "dark": "#d8d8d8" },
+		"alternateBase":   { "light": "#f0efec", "dark": "#26282a" },
+		"mid":             { "light": "#8f8f8f", "dark": "#6a6d70" },
+		"midlight":        { "light": "#dcdcd8", "dark": "#34373a" },
+		"highlightedText": { "light": "#ffffff", "dark": "#ffffff" }
+	},
+
+	"separator": { "light": "#d8d7d3", "dark": "#3a3d40" },
+
+	"expert": {
+		"comment":    { "light": "#cde8b8", "dark": "#cde8b8" },
+		"chat":       { "light": "#b8d4ee", "dark": "#b8d4ee" },
+		"note":       { "light": "#c8f0f0", "dark": "#c8f0f0" },
+		"warn":       { "light": "#f5f0b0", "dark": "#f5f0b0" },
+		"error":      { "light": "#f5b8b8", "dark": "#f5b8b8" },
+		"foreground": { "light": "#2d2d2d", "dark": "#2d2d2d" }
+	},
+
+	"graphs": [
+		{ "light": "#3d454d", "dark": "#b6bec6" },
+		{ "light": "#3f6285", "dark": "#8fb4d4" },
+		{ "light": "#8a7a3a", "dark": "#d4c98f" },
+		{ "light": "#5d8a5d", "dark": "#9ecf9e" },
+		{ "light": "#965454", "dark": "#d99a9a" },
+		{ "light": "#6f5a7a", "dark": "#bba0c9" },
+		{ "light": "#8a6a4a", "dark": "#d4b48f" },
+		{ "light": "#a8b0b8", "dark": "#5a626a" }
+	]
+}

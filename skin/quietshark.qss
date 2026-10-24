@@ -1,0 +1,86 @@
+/* quietshark — Qt stylesheet for Wireshark 4.2-4.6.
+ *
+ * Wireshark does not load QSS itself (its option parser rejects Qt's
+ * -stylesheet argument), so apply this through a Qt platform theme:
+ *
+ *   qt6ct  : Stylesheets tab -> point at this file, then set
+ *            QT_QPA_PLATFORMTHEME=qt6ct (install.sh does both when
+ *            qt6ct is present).
+ *
+ * The rules flatten the Fusion style: no gradients, hairline borders,
+ * roomier hit targets. Deliberately conservative selectors — heavy
+ * QSS on QTreeView can slow the packet list on huge captures.
+ */
+
+QWidget {
+    font-size: 10pt;
+}
+
+QToolBar {
+    border: none;
+    border-bottom: 1px solid palette(midlight);
+    padding: 3px;
+    spacing: 4px;
+}
+
+QToolButton {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 3px;
+}
+
+QToolButton:hover,
+QToolButton:pressed,
+QToolButton:checked {
+    border-color: palette(midlight);
+    background: palette(midlight);
+}
+
+QLineEdit, QComboBox, QSpinBox {
+    border: 1px solid palette(mid);
+    border-radius: 4px;
+    padding: 3px 6px;
+    selection-background-color: palette(highlight);
+    selection-color: palette(highlightedText);
+}
+
+QHeaderView::section {
+    background: palette(window);
+    border: none;
+    border-bottom: 1px solid palette(mid);
+    padding: 4px 6px;
+    font-weight: 600;
+}
+
+QTreeView, QListView, QTableView, QTextBrowser {
+    border: 1px solid palette(midlight);
+    show-decoration-selected: 1;
+}
+
+QTabBar::tab {
+    padding: 5px 12px;
+    border: 1px solid palette(midlight);
+    border-bottom: none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+QTabBar::tab:selected {
+    background: palette(base);
+}
+
+QStatusBar {
+    border-top: 1px solid palette(midlight);
+}
+
+QSplitter::handle {
+    background: palette(midlight);
+}
+
+QMenu {
+    border: 1px solid palette(mid);
+}
+
+QMenu::item {
+    padding: 4px 24px 4px 12px;
+}

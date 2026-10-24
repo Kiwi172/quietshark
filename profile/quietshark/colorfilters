@@ -1,0 +1,11 @@
+# quietshark color palette — muted, low-saturation row tints.
+# Format: @name@filter@[bg_r,bg_g,bg_b][text_r,text_g,text_b]  (0-65535)
+# First bracket is BACKGROUND, second is TEXT (epan/color_filters.c).
+@Bad TCP@tcp.analysis.flags && !tcp.analysis.window_update && !tcp.analysis.keep_alive && !tcp.analysis.keep_alive_ack@[61440,56284,56284][31233,12288,12288]
+@TCP RST@tcp.flags.reset eq 1@[61440,56284,56284][31233,12288,12288]
+@ICMP errors@icmp.type in { 3..5, 11 } || icmpv6.type in { 1..4 }@[61440,56284,56284][31233,12288,12288]
+@HTTP@http@[57090,59637,62098][15613,15613,15613]
+@TLS@tls@[57090,60918,57352][15613,15613,15613]
+@DNS@dns@[59637,58885,61680][15613,15613,15613]
+@ARP@arp@[60395,60395,60395][15613,15613,15613]
+@ICMP@icmp || icmpv6@[60395,60395,60395][15613,15613,15613]

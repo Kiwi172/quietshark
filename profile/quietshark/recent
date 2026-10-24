@@ -1,0 +1,26 @@
+# quietshark profile — recent settings.
+# Pane and toolbar visibility. Keys unknown to older Wireshark releases
+# are silently ignored, so this file is safe on 4.2 through master.
+
+# Keep the two toolbars you actually use; drop the rest.
+gui.toolbar_main_show: TRUE
+gui.filter_toolbar_show: TRUE
+gui.additional_toolbar_show: FALSE
+gui.interface_toolbar_show: FALSE
+gui.wireless_toolbar_show: FALSE
+gui.airpcap_toolbar_show: FALSE
+
+# Three panes, not four. The packet diagram and byte view are hidden;
+# re-enable them any time from the View menu.
+gui.packet_list_show: TRUE
+gui.tree_view_show: TRUE
+gui.byte_view_show: FALSE
+gui.packet_diagram_show: FALSE
+gui.statusbar_show: TRUE
+
+# Calm packet-list coloring driven by the quietshark colorfilters file.
+gui.packet_list_colorize: TRUE
+
+# Quiet the welcome page (Wireshark 4.6+; ignored on older releases).
+gui.welcome_page.sidebar.tips_visible: FALSE
+gui.welcome_page.sidebar.learn_visible: FALSE

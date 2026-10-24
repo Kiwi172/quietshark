@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Standalone runner
+        run: python3 tests/test_quietshark.py
+      - name: pytest
+        run: |
+          pip install pytest
+          pytest tests/ -q
+
+  integration:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Wireshark + Xvfb
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends wireshark xvfb imagemagick
+          wireshark --version | head -2
+      - name: Install profile
+        run: ./install.sh
+      - name: Launch with profile and assert it survives cleanly
+        run: |
+          set -x
+          xvfb-run -a -s "-screen 0 1440x900x24" bash -c '
+            wireshark >/dev/null 2>ws.err &
+            pid=$!
+            sleep 15
+            import -window root quietshark.png || true
+            kill $pid 2>/dev/null
+            wait $pid 2>/dev/null || true
+          '
+          if [ -f ws.err ] && grep -qiE "unknown preference|bad preference|was not found|cannot open" ws.err; then
+            echo "Wireshark rejected something in our profile:"; cat ws.err; exit 1
+          fi
+          test -s quietshark.png
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: quietshark-screenshot
+          path: quietshark.png
